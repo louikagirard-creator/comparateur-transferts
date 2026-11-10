@@ -1,5 +1,7 @@
 # Comparateur de transferts d'argent (prototype)
 
+En ligne : https://louikagirard-creator.github.io/comparateur-transferts/ (mis à jour automatiquement chaque jour de semaine à 16 h 30 UTC).
+
 Site automatique qui compare ce que reçoit vraiment une famille en Afrique francophone quand on lui envoie de l'argent du Canada ou de France : frais, taux de change et marge cachée. Aucune IA en direct et aucune clé API : un script met à jour les taux et reconstruit le site chaque jour.
 
 > **Tarifs relevés à la main le 10 novembre 2026** sur les calculateurs publics de Remitly, Sendwave et Taptap Send (6 trajets) et de WorldRemit (3 trajets depuis le Canada), pour 200 $ CA ou 200 €, taux standard hors offres de bienvenue. Western Union et MoneyGram ne sont pas encore relevés. Une bannière l'indique sur chaque page tant que `data/fournisseurs.json` contient son champ `_bandeau`.
