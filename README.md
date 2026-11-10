@@ -57,5 +57,6 @@ Les tests vérifient notamment que le calculateur du navigateur donne exactement
 | [src/calcul.ts](src/calcul.ts) | Taux de référence, montant reçu, coût total, classement |
 | [src/taux.ts](src/taux.ts) | Téléchargement et cache des taux de la BCE |
 | [src/site.ts](src/site.ts) | Pages HTML et calculateur du navigateur |
+| [src/guides.ts](src/guides.ts) | Guides dont les chiffres viennent des relevés du jour |
 | [src/mettre-a-jour.ts](src/mettre-a-jour.ts) | Mise à jour quotidienne complète |
 | [src/apercu.ts](src/apercu.ts) | Serveur local pour voir le site |
