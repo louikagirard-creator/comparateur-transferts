@@ -21,6 +21,9 @@ export type Donnees = {
 // Chemin de base du site : "/" en local, "/comparateur-transferts/" sur GitHub Pages (variable BASE_URL).
 export const BASE = (process.env.BASE_URL || "/").replace(/\/?$/, "/");
 
+// Adresse publique complète du site (variable SITE_URL), pour les liens canoniques et le plan du site.
+export const SITE_URL = process.env.SITE_URL ? process.env.SITE_URL.replace(/\/?$/, "/") : "";
+
 export const MODES: Record<string, string> = { mobile: "Mobile money", especes: "Retrait en espèces", banque: "Compte bancaire" };
 
 export function echapper(t: string): string {
@@ -64,9 +67,12 @@ export function definirBanniere(texte: string | undefined): void {
   banniere = texte ? `<div style="background:var(--alerte);color:#fff;padding:8px 16px;text-align:center;font-size:.9rem">${echapper(texte)}</div>` : "";
 }
 
-function page(titre: string, description: string, nomSite: string, corps: string): string {
+export function page(titre: string, description: string, nomSite: string, corps: string, chemin = ""): string {
+  const canonique = SITE_URL ? `<link rel="canonical" href="${SITE_URL}${chemin}"><meta property="og:url" content="${SITE_URL}${chemin}">` : "";
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${echapper(titre)}</title><meta name="description" content="${echapper(description)}"><style>${STYLE}</style></head>
+<title>${echapper(titre)}</title><meta name="description" content="${echapper(description)}">${canonique}
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="${echapper(titre)}"><meta property="og:description" content="${echapper(description)}">
+<style>${STYLE}</style></head>
 <body>${banniere}<header><a href="${BASE}">${echapper(nomSite)}</a></header><main>${corps}</main>
 <footer><p>Comparateur indépendant et gratuit. Certains liens sont rémunérés : cela ne change jamais le classement, toujours trié par montant reçu. <a href="${BASE}methode/">Notre méthode</a>.</p>
 <p>Taux de référence : Banque centrale européenne. Vérifiez toujours le montant final chez le fournisseur avant d'envoyer.</p></footer></body></html>`;
@@ -176,10 +182,13 @@ ${CALCUL_NAVIGATEUR}
   document.getElementById("mode").addEventListener("change", recalculer);
 })();
 </script>`,
+    `${slug(o, dest)}/`,
   );
 }
 
-export function pageAccueil(d: Donnees): string {
+export type LienGuide = { titre: string; resume: string; chemin: string };
+
+export function pageAccueil(d: Donnees, guides: LienGuide[] = []): string {
   const cartes = d.corridors.origines
     .flatMap((o) =>
       d.corridors.destinations.map((dest) => {
@@ -197,7 +206,12 @@ export function pageAccueil(d: Donnees): string {
     `<h1>Envoyez plus, payez moins de frais</h1>
 <p>Chaque jour, on compare ce que reçoit vraiment votre famille, frais et marge cachée sur le taux de change compris. Gratuit et indépendant.</p>
 <p class="doux">Taux de référence de la Banque centrale européenne du ${echapper(d.taux.date)}.</p>
-<div class="grille">${cartes}</div>`,
+<div class="grille">${cartes}</div>${
+      guides.length
+        ? `<h2>Guides</h2><ul>${guides.map((g) => `<li><a href="${BASE}${g.chemin}">${echapper(g.titre)}</a><br><span class="doux">${echapper(g.resume)}</span></li>`).join("")}</ul>`
+        : ""
+    }`,
+    "",
   );
 }
 
@@ -214,6 +228,7 @@ export function pageMethode(d: Donnees): string {
 <li><strong>Classement</strong> : toujours par montant reçu, du plus élevé au plus bas.</li></ol>
 <h2>Comment le site est financé</h2>
 <p>Certains fournisseurs nous versent une commission quand vous devenez leur client par nos liens (marqués « lien rémunéré »). Cela ne coûte rien de plus et ne change jamais le classement. Les fournisseurs qui ne paient pas sont comparés de la même façon.</p>`,
+    "methode/",
   );
 }
 

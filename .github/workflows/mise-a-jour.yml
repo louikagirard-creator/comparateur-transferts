@@ -22,6 +22,7 @@ jobs:
         env:
           # Le site est servi depuis https://<compte>.github.io/<dépôt>/
           BASE_URL: /${{ github.event.repository.name }}/
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
       - name: Garder les taux du jour dans le dépôt
         run: |
           git config user.name "mise-a-jour-auto"

@@ -5,7 +5,8 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Fournisseur } from "./calcul.ts";
 import type { Corridors, Donnees } from "./site.ts";
-import { alerteDuJour, definirBanniere, pageAccueil, pageCorridor, pageMethode, slug } from "./site.ts";
+import { alerteDuJour, definirBanniere, pageAccueil, pageCorridor, pageMethode, slug, SITE_URL } from "./site.ts";
+import { GUIDES, pagesGuides } from "./guides.ts";
 import { enregistrerTaux, lireTauxEnCache, telechargerTaux } from "./taux.ts";
 
 const SORTIE = "dist";
@@ -48,17 +49,31 @@ async function principal(): Promise<void> {
   const donnees: Donnees = { corridors, fournisseurs, taux, aujourdHui: new Date(), nomSite: NOM_SITE };
 
   fs.rmSync(SORTIE, { recursive: true, force: true });
-  ecrire("index.html", pageAccueil(donnees));
+  const chemins = ["", "methode/"];
+  ecrire("index.html", pageAccueil(donnees, GUIDES));
   ecrire("methode/index.html", pageMethode(donnees));
-  let pages = 2;
   for (const o of corridors.origines) {
     for (const d of corridors.destinations) {
       ecrire(`${slug(o, d)}/index.html`, pageCorridor(donnees, o, d));
-      pages++;
+      chemins.push(`${slug(o, d)}/`);
     }
   }
+  for (const g of pagesGuides(donnees)) {
+    ecrire(`${g.chemin}index.html`, g.html);
+    chemins.push(g.chemin);
+  }
   ecrire("alerte-du-jour.txt", alerteDuJour(donnees));
-  console.log(`${pages} pages générées dans ${SORTIE}/, plus l'alerte du jour.`);
+  // Plan du site pour les moteurs de recherche (seulement si l'adresse publique est connue).
+  if (SITE_URL) {
+    const jour = new Date().toISOString().slice(0, 10);
+    ecrire(
+      "sitemap.xml",
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${chemins
+        .map((c) => `  <url><loc>${SITE_URL}${c}</loc><lastmod>${jour}</lastmod></url>`)
+        .join("\n")}\n</urlset>\n`,
+    );
+  }
+  console.log(`${chemins.length} pages générées dans ${SORTIE}/${SITE_URL ? ", plus le plan du site" : ""} et l'alerte du jour.`);
 }
 
 principal().catch((e) => {
