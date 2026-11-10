@@ -1,16 +1,139 @@
 {
   "parites_fixes": {
-    "XOF": { "euro": 655.957, "nom": "franc CFA (UEMOA)" },
-    "XAF": { "euro": 655.957, "nom": "franc CFA (CEMAC)" }
+    "XOF": {
+      "euro": 655.957,
+      "nom": "franc CFA (UEMOA)"
+    },
+    "XAF": {
+      "euro": 655.957,
+      "nom": "franc CFA (CEMAC)"
+    }
   },
   "origines": [
-    { "code": "CA", "nom": "Canada", "de": "du Canada", "devise": "CAD" },
-    { "code": "FR", "nom": "France", "de": "de France", "devise": "EUR" }
+    {
+      "code": "CA",
+      "nom": "Canada",
+      "de": "du Canada",
+      "devise": "CAD"
+    },
+    {
+      "code": "FR",
+      "nom": "France",
+      "de": "de France",
+      "devise": "EUR"
+    }
   ],
   "destinations": [
-    { "code": "SN", "nom": "Sénégal", "au": "au Sénégal", "devise": "XOF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["Wave", "Orange Money"] },
-    { "code": "CI", "nom": "Côte d'Ivoire", "au": "en Côte d'Ivoire", "devise": "XOF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["Wave", "Orange Money", "MTN MoMo"] },
-    { "code": "CM", "nom": "Cameroun", "au": "au Cameroun", "devise": "XAF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["MTN MoMo", "Orange Money"] }
+    {
+      "code": "SN",
+      "nom": "Sénégal",
+      "au": "au Sénégal",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "Wave",
+        "Orange Money"
+      ]
+    },
+    {
+      "code": "CI",
+      "nom": "Côte d'Ivoire",
+      "au": "en Côte d'Ivoire",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "Wave",
+        "Orange Money",
+        "MTN MoMo"
+      ]
+    },
+    {
+      "code": "CM",
+      "nom": "Cameroun",
+      "au": "au Cameroun",
+      "devise": "XAF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "MTN MoMo",
+        "Orange Money"
+      ]
+    },
+    {
+      "code": "ML",
+      "nom": "Mali",
+      "au": "au Mali",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "Orange Money",
+        "Moov Money"
+      ]
+    },
+    {
+      "code": "BF",
+      "nom": "Burkina Faso",
+      "au": "au Burkina Faso",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "Orange Money",
+        "Moov Money"
+      ]
+    },
+    {
+      "code": "TG",
+      "nom": "Togo",
+      "au": "au Togo",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "Mixx by Yas",
+        "Flooz"
+      ]
+    },
+    {
+      "code": "BJ",
+      "nom": "Bénin",
+      "au": "au Bénin",
+      "devise": "XOF",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "portefeuilles": [
+        "MTN MoMo",
+        "Moov Money"
+      ]
+    }
   ],
-  "montants_exemples": [100, 200, 500]
+  "montants_exemples": [
+    100,
+    200,
+    500
+  ]
 }

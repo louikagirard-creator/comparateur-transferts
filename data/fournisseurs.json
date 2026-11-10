@@ -1,6 +1,6 @@
 {
   "_bandeau": "Version de test : tarifs relevés le 10 novembre 2026 sur les sites des fournisseurs. Vérifiez toujours le montant final chez le fournisseur.",
-  "_source": "Relevés manuels du 2026-11-10 sur les calculateurs publics de chaque fournisseur, pour un envoi de 200 CAD ou 200 EUR, taux standard hors offres de bienvenue. Marge = écart entre le taux affiché et le taux BCE du 2026-11-09 (415.557 XOF pour 1 CAD ; 655,957 pour 1 EUR). Western Union et MoneyGram : non relevés (leurs données venaient de Wise, retirées faute d’accord).",
+  "_source": "Relevés manuels du 2026-11-10 (Sénégal, Côte d’Ivoire, Cameroun, Mali, Burkina Faso, Togo, Bénin) sur les calculateurs publics de chaque fournisseur, pour un envoi de 200 CAD ou 200 EUR, taux standard hors offres de bienvenue. Marge = écart entre le taux affiché et le taux BCE du 2026-11-09 (415.557 XOF pour 1 CAD ; 655,957 pour 1 EUR). Western Union et MoneyGram : non relevés (leurs données venaient de Wise, retirées faute d’accord). Remitly depuis le Canada vers le Mali et le Burkina Faso : seul le tarif de bienvenue était affiché, non retenu.",
   "fournisseurs": [
     {
       "id": "remitly",
@@ -38,6 +38,36 @@
           "frais_fixes": 1.99,
           "frais_pourcent": 0,
           "marge_change_pourcent": 0
+        },
+        "CAD-TG": {
+          "frais_fixes": 6.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 4.08
+        },
+        "CAD-BJ": {
+          "frais_fixes": 6.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 3.92
+        },
+        "EUR-ML": {
+          "frais_fixes": 1.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BF": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-TG": {
+          "frais_fixes": 6.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BJ": {
+          "frais_fixes": 8.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
         }
       },
       "note": "Taux standard, hors offre de bienvenue (meilleur taux et frais offerts sur les premiers envois des nouveaux clients).",
@@ -49,7 +79,11 @@
       "destinations": [
         "SN",
         "CI",
-        "CM"
+        "CM",
+        "ML",
+        "BF",
+        "TG",
+        "BJ"
       ],
       "delai": "selon le mode choisi"
     },
@@ -89,6 +123,46 @@
           "frais_fixes": 1.9,
           "frais_pourcent": 0,
           "marge_change_pourcent": 0
+        },
+        "CAD-ML": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 2.02
+        },
+        "CAD-BF": {
+          "frais_fixes": 1.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0.15
+        },
+        "CAD-TG": {
+          "frais_fixes": 2.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 1.82
+        },
+        "CAD-BJ": {
+          "frais_fixes": 2.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 1.23
+        },
+        "EUR-ML": {
+          "frais_fixes": 1.49,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BF": {
+          "frais_fixes": 1.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-TG": {
+          "frais_fixes": 1.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BJ": {
+          "frais_fixes": 0.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0.8
         }
       },
       "note": "Réception sur Wave, Orange Money ou MTN MoMo.",
@@ -98,9 +172,16 @@
       "destinations": [
         "SN",
         "CI",
-        "CM"
+        "CM",
+        "ML",
+        "BF",
+        "TG",
+        "BJ"
       ],
-      "delai": "quelques minutes"
+      "delai": "quelques minutes",
+      "notes": {
+        "EUR-BJ": "Taux appliqué : 650,71 FCFA pour 1 € au lieu du taux fixe de 655,957."
+      }
     },
     {
       "id": "taptap-send",
@@ -138,6 +219,46 @@
           "frais_fixes": 2,
           "frais_pourcent": 0,
           "marge_change_pourcent": 0
+        },
+        "CAD-ML": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": -0.95
+        },
+        "CAD-BF": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": -0.95
+        },
+        "CAD-TG": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": -0.35
+        },
+        "CAD-BJ": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": -0.35
+        },
+        "EUR-ML": {
+          "frais_fixes": 2,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BF": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-TG": {
+          "frais_fixes": 1,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-BJ": {
+          "frais_fixes": 1,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
         }
       },
       "modes": [
@@ -146,11 +267,19 @@
       "destinations": [
         "SN",
         "CI",
-        "CM"
+        "CM",
+        "ML",
+        "BF",
+        "TG",
+        "BJ"
       ],
       "delai": "quelques minutes",
       "notes": {
-        "CAD-CI": "Taux affiché (419,5) au-dessus du taux de référence : à vérifier lors d’un vrai envoi."
+        "CAD-CI": "Taux affiché (419,5) au-dessus du taux de référence : à vérifier lors d’un vrai envoi.",
+        "CAD-ML": "Taux affiché (419,5) au-dessus du taux de référence : à vérifier lors d’un vrai envoi.",
+        "CAD-BF": "Taux affiché (419,5) au-dessus du taux de référence : à vérifier lors d’un vrai envoi.",
+        "CAD-TG": "Taux affiché (417) au-dessus du taux de référence : à vérifier lors d’un vrai envoi.",
+        "CAD-BJ": "Taux affiché (417) au-dessus du taux de référence : à vérifier lors d’un vrai envoi."
       }
     },
     {
