@@ -63,6 +63,8 @@ async function principal(): Promise<void> {
     chemins.push(g.chemin);
   }
   ecrire("alerte-du-jour.txt", alerteDuJour(donnees));
+  // Fichiers à publier tels quels (ex. fichier de vérification Google « googleXXXX.html »).
+  if (fs.existsSync("public")) fs.cpSync("public", SORTIE, { recursive: true });
   // Plan du site pour les moteurs de recherche (seulement si l'adresse publique est connue).
   if (SITE_URL) {
     const jour = new Date().toISOString().slice(0, 10);

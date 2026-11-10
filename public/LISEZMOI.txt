@@ -1,0 +1,2 @@
+Fichiers copiés tels quels à la racine du site publié.
+Mettre ici le fichier de vérification de Google Search Console (googleXXXXXXXX.html).
