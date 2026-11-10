@@ -1,0 +1,41 @@
+# Mise à jour automatique chaque jour : taux BCE, pages, publication sur GitHub Pages.
+# À activer une fois le projet dans un dépôt GitHub (Settings > Pages > Source : GitHub Actions).
+name: Mise à jour quotidienne
+on:
+  schedule:
+    - cron: "30 16 * * 1-5" # 16 h 30 UTC, après la publication des taux de la BCE
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  mettre-a-jour:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm test
+      - run: npm run mise-a-jour
+        env:
+          # Le site est servi depuis https://<compte>.github.io/<dépôt>/
+          BASE_URL: /${{ github.event.repository.name }}/
+      - name: Garder les taux du jour dans le dépôt
+        run: |
+          git config user.name "mise-a-jour-auto"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/taux.json
+          git diff --cached --quiet || git commit -m "Taux BCE du jour"
+          git push
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  publier:
+    needs: mettre-a-jour
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4

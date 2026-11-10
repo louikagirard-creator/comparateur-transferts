@@ -1,0 +1,196 @@
+{
+  "_bandeau": "Version de test : tarifs relevés le 10 novembre 2026 sur les sites des fournisseurs. Vérifiez toujours le montant final chez le fournisseur.",
+  "_source": "Relevés manuels du 2026-11-10 sur les calculateurs publics de chaque fournisseur, pour un envoi de 200 CAD ou 200 EUR, taux standard hors offres de bienvenue. Marge = écart entre le taux affiché et le taux BCE du 2026-11-09 (415.557 XOF pour 1 CAD ; 655,957 pour 1 EUR). Western Union et MoneyGram : non relevés (leurs données venaient de Wise, retirées faute d’accord).",
+  "fournisseurs": [
+    {
+      "id": "remitly",
+      "nom": "Remitly",
+      "lien": "https://www.remitly.com/",
+      "affilie": false,
+      "releve_le": "2026-11-10",
+      "tarifs": {
+        "CAD-SN": {
+          "frais_fixes": 5.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 3.11
+        },
+        "CAD-CI": {
+          "frais_fixes": 6.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 2.87
+        },
+        "CAD-CM": {
+          "frais_fixes": 2.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 1.9
+        },
+        "EUR-SN": {
+          "frais_fixes": 1.9,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CI": {
+          "frais_fixes": 8.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CM": {
+          "frais_fixes": 1.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        }
+      },
+      "note": "Taux standard, hors offre de bienvenue (meilleur taux et frais offerts sur les premiers envois des nouveaux clients).",
+      "modes": [
+        "mobile",
+        "especes",
+        "banque"
+      ],
+      "destinations": [
+        "SN",
+        "CI",
+        "CM"
+      ],
+      "delai": "selon le mode choisi"
+    },
+    {
+      "id": "sendwave",
+      "nom": "Sendwave",
+      "lien": "https://www.sendwave.com/fr",
+      "affilie": false,
+      "releve_le": "2026-11-10",
+      "tarifs": {
+        "CAD-SN": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 1.53
+        },
+        "CAD-CI": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 3.12
+        },
+        "CAD-CM": {
+          "frais_fixes": 0.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 2.53
+        },
+        "EUR-SN": {
+          "frais_fixes": 1.49,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CI": {
+          "frais_fixes": 1.49,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CM": {
+          "frais_fixes": 1.9,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        }
+      },
+      "note": "Réception sur Wave, Orange Money ou MTN MoMo.",
+      "modes": [
+        "mobile"
+      ],
+      "destinations": [
+        "SN",
+        "CI",
+        "CM"
+      ],
+      "delai": "quelques minutes"
+    },
+    {
+      "id": "taptap-send",
+      "nom": "Taptap Send",
+      "lien": "https://www.taptapsend.com/",
+      "affilie": false,
+      "releve_le": "2026-11-10",
+      "tarifs": {
+        "CAD-SN": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0.13
+        },
+        "CAD-CI": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": -0.95
+        },
+        "CAD-CM": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0.37
+        },
+        "EUR-SN": {
+          "frais_fixes": 0,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CI": {
+          "frais_fixes": 2,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        },
+        "EUR-CM": {
+          "frais_fixes": 2,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 0
+        }
+      },
+      "modes": [
+        "mobile"
+      ],
+      "destinations": [
+        "SN",
+        "CI",
+        "CM"
+      ],
+      "delai": "quelques minutes",
+      "notes": {
+        "CAD-CI": "Taux affiché (419,5) au-dessus du taux de référence : à vérifier lors d’un vrai envoi."
+      }
+    },
+    {
+      "id": "worldremit",
+      "nom": "WorldRemit",
+      "lien": "https://www.worldremit.com/en-ca",
+      "affilie": false,
+      "releve_le": "2026-11-10",
+      "tarifs": {
+        "CAD-SN": {
+          "frais_fixes": 4.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 4.71
+        },
+        "CAD-CI": {
+          "frais_fixes": 12.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 4.71
+        },
+        "CAD-CM": {
+          "frais_fixes": 4.99,
+          "frais_pourcent": 0,
+          "marge_change_pourcent": 4.93
+        }
+      },
+      "modes": [
+        "especes",
+        "mobile"
+      ],
+      "destinations": [
+        "SN",
+        "CI",
+        "CM"
+      ],
+      "delai": "de quelques minutes à 1 heure",
+      "notes": {
+        "CAD-SN": "Frais relevés pour un retrait en espèces.",
+        "CAD-CM": "Frais relevés pour un retrait en espèces.",
+        "CAD-CI": "Frais relevés pour le mobile money."
+      }
+    }
+  ]
+}

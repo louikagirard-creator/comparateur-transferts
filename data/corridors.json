@@ -1,0 +1,16 @@
+{
+  "parites_fixes": {
+    "XOF": { "euro": 655.957, "nom": "franc CFA (UEMOA)" },
+    "XAF": { "euro": 655.957, "nom": "franc CFA (CEMAC)" }
+  },
+  "origines": [
+    { "code": "CA", "nom": "Canada", "de": "du Canada", "devise": "CAD" },
+    { "code": "FR", "nom": "France", "de": "de France", "devise": "EUR" }
+  ],
+  "destinations": [
+    { "code": "SN", "nom": "Sénégal", "au": "au Sénégal", "devise": "XOF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["Wave", "Orange Money"] },
+    { "code": "CI", "nom": "Côte d'Ivoire", "au": "en Côte d'Ivoire", "devise": "XOF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["Wave", "Orange Money", "MTN MoMo"] },
+    { "code": "CM", "nom": "Cameroun", "au": "au Cameroun", "devise": "XAF", "modes": ["mobile", "especes", "banque"], "portefeuilles": ["MTN MoMo", "Orange Money"] }
+  ],
+  "montants_exemples": [100, 200, 500]
+}

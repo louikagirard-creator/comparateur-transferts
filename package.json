@@ -1,0 +1,19 @@
+{
+  "name": "comparateur-transferts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototype : comparateur automatique des frais d'envoi d'argent vers l'Afrique francophone.",
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "mise-a-jour": "node src/mettre-a-jour.ts",
+    "generer": "node src/mettre-a-jour.ts --hors-ligne",
+    "apercu": "node src/apercu.ts",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
