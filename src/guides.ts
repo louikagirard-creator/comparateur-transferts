@@ -70,8 +70,11 @@ const mobileMoney: Guide = {
 <p>Pour 200 ${t.o.devise}, le meilleur aujourd'hui est <strong>${echapper(m.fournisseur.nom)}</strong> : ${formater(m.montantRecu)} ${dest.devise} reçus (coût total ${formater(m.coutPourcent, 1)} %). Voir le ${lienTrajet(t.o, dest)}.</p>`;
       })
       .join("");
+    const lieux = d.corridors.destinations.map((x) => x.au);
+    const enumeration = lieux.length > 1 ? `${lieux.slice(0, -1).join(", ")} et ${lieux[lieux.length - 1]}` : (lieux[0] ?? "");
+    const debut = enumeration.charAt(0).toUpperCase() + enumeration.slice(1);
     return `<h1>Envoyer sur Wave, Orange Money ou MTN MoMo depuis le Canada</h1>
-<p>Au Sénégal, en Côte d'Ivoire et au Cameroun, beaucoup de familles reçoivent l'argent directement sur leur téléphone. C'est souvent le moyen le plus rapide : quelques minutes, sans se déplacer.</p>
+<p>${echapper(debut)}, beaucoup de familles reçoivent l'argent directement sur leur téléphone. C'est souvent le moyen le plus rapide : quelques minutes, sans se déplacer.</p>
 ${blocs}
 <h2>Avant d'envoyer</h2>
 <ul><li>Vérifiez le nom exact du titulaire du portefeuille et son numéro avec l'indicatif du pays.</li>

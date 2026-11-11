@@ -4,7 +4,7 @@ En ligne : https://louikagirard-creator.github.io/comparateur-transferts/ (mis �
 
 Site automatique qui compare ce que reçoit vraiment une famille en Afrique francophone quand on lui envoie de l'argent du Canada ou de France : frais, taux de change et marge cachée. Aucune IA en direct et aucune clé API : un script met à jour les taux et reconstruit le site chaque jour.
 
-> **Tarifs relevés à la main le 10 novembre 2026** sur les calculateurs publics de Remitly, Sendwave et Taptap Send (6 trajets) et de WorldRemit (3 trajets depuis le Canada), pour 200 $ CA ou 200 €, taux standard hors offres de bienvenue. Western Union et MoneyGram ne sont pas encore relevés. Une bannière l'indique sur chaque page tant que `data/fournisseurs.json` contient son champ `_bandeau`.
+> **Tarifs relevés à la main le 10 novembre 2026** sur les calculateurs publics de Taptap Send et Sendwave (14 trajets), de Remitly (12 trajets : pas Canada → Mali ni Canada → Burkina Faso, où seul le tarif de bienvenue s'affichait) et de WorldRemit (3 trajets depuis le Canada), pour 200 $ CA ou 200 €, taux standard hors offres de bienvenue. Western Union et MoneyGram ne sont pas encore relevés. Une bannière l'indique sur chaque page tant que `data/fournisseurs.json` contient son champ `_bandeau`.
 
 ## Essayer
 
@@ -22,7 +22,7 @@ npm run mise-a-jour
 npm run apercu
 ```
 
-Puis ouvrir http://localhost:4000. Six corridors au départ : Canada et France vers le Sénégal, la Côte d'Ivoire et le Cameroun.
+Puis ouvrir http://localhost:4000. 14 trajets : Canada et France vers le Sénégal, la Côte d'Ivoire, le Cameroun, le Mali, le Burkina Faso, le Togo et le Bénin.
 
 ## Comment ça marche
 
@@ -36,7 +36,8 @@ Puis ouvrir http://localhost:4000. Six corridors au départ : Canada et France v
 1. **Compléter et refaire les relevés chaque semaine** dans [data/fournisseurs.json](data/fournisseurs.json) : ajouter Western Union, MoneyGram, Lemfi et WorldRemit depuis la France. Pour chaque trajet, simuler un envoi de 200 sur le site du fournisseur et noter les frais et le taux standard ; la marge se calcule par rapport au taux de la BCE du jour. Un tarif peut être propre à un trajet (clé `"CAD-SN"`) ou commun à une devise (clé `"CAD"`) ; une remarque propre à un trajet va dans `notes`. Ne pas réutiliser les données de comparaison de Wise sans son accord écrit (ses conditions l'interdisent). À terme, utiliser les flux des partenaires d'affiliation. Retirer le champ `_bandeau` quand les relevés sont complets.
 2. **Mettre vos liens d'affiliation** dans le champ `lien` (`affilie: true` pour les liens rémunérés : ils sont marqués comme tels sur le site).
 3. **Choisir un nom** (variable `NOM_SITE`) et un nom de domaine.
-4. **Publier automatiquement** : mettre le projet sur GitHub, activer GitHub Pages (source : GitHub Actions). Le fichier [.github/workflows/mise-a-jour.yml](.github/workflows/mise-a-jour.yml) lance la mise à jour chaque jour de semaine à 16 h 30 UTC, après la publication des taux de la BCE. Ce fichier n'a pas encore été testé sur GitHub.
+4. **Publication automatique (en place)** : GitHub Pages, source GitHub Actions. Le fichier [.github/workflows/mise-a-jour.yml](.github/workflows/mise-a-jour.yml) lance la mise à jour chaque jour de semaine à 16 h 30 UTC, après la publication des taux de la BCE ; on peut aussi la lancer à la main avec `gh workflow run mise-a-jour.yml`.
+5. **Google Search Console** : déposer le fichier de vérification `googleXXXX.html` dans `public/`, publier, valider, puis soumettre `sitemap.xml`.
 
 Ajouter un corridor : une ligne dans `origines` ou `destinations` de [data/corridors.json](data/corridors.json). Les devises hors franc CFA doivent être publiées par la BCE (le dirham marocain et la gourde haïtienne ne le sont pas : il faudra une autre source de taux).
 
